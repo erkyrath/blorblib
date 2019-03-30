@@ -1,4 +1,4 @@
-/* blorbscan.c: Blorb file analysis tool, version 1.0.
+/* blorbscan.c: Blorb file analysis tool, version 1.0.1.
     Designed by Andrew Plotkin <erkyrath@netcom.com>
     http://www.edoc.com/zarf/blorb/index.html
     

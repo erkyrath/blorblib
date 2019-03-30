@@ -1,4 +1,4 @@
-/* blorblib.c: Blorb file reader library, version 1.0.
+/* blorblib.c: Blorb file reader library, version 1.0.1.
     Designed by Andrew Plotkin <erkyrath@netcom.com>
     http://www.edoc.com/zarf/blorb/index.html
     
@@ -198,6 +198,8 @@ static bb_err_t bb_initialize_map(bb_map_t *map)
     bb_err_t err;
     uint32 *ptr;
     uint32 len;
+    uint32 val;
+    int numres;
     int gotindex = FALSE; 
 
     for (ix=0; ix<map->numchunks; ix++) {
@@ -217,12 +219,13 @@ static bb_err_t bb_initialize_map(bb_map_t *map)
                 
                 ptr = chunkres.data.ptr;
                 len = chunkres.length;
-                
-                if (ptr[0]) {
+                val = ptr[0];
+                numres = bb_native4(val);
+
+                if (numres) {
                     int ix2;
                     bb_resdesc_t *resources;
                     bb_resdesc_t **ressorted;
-                    int numres = ptr[0];
                     
                     if (len != numres*12+4)
                         return bb_err_Format; /* bad length field */
@@ -237,9 +240,12 @@ static bb_err_t bb_initialize_map(bb_map_t *map)
                         bb_resdesc_t *res = &(resources[jx]);
                         uint32 respos;
                         
-                        res->usage = ptr[1+jx*3];
-                        res->resnum = ptr[2+jx*3];
-                        respos = ptr[3+jx*3];
+                        val = ptr[1+jx*3];
+                        res->usage = bb_native4(val);
+                        val = ptr[2+jx*3];
+                        res->resnum = bb_native4(val);
+                        val = ptr[3+jx*3];
+                        respos = bb_native4(val);
                         
                         while (ix2 < map->numchunks && map->chunks[ix2].startpos < respos)
                             ix2++;
@@ -339,12 +345,12 @@ static bb_err_t bb_initialize_map(bb_map_t *map)
                     if (!reso)
                         return bb_err_Alloc;
                     
-                    reso->px = ptr[0];
-                    reso->py = ptr[1];
-                    reso->minx = ptr[2];
-                    reso->miny = ptr[3];
-                    reso->maxx = ptr[4];
-                    reso->maxy = ptr[5];
+                    reso->px = bb_native4(ptr[0]);
+                    reso->py = bb_native4(ptr[1]);
+                    reso->minx = bb_native4(ptr[2]);
+                    reso->miny = bb_native4(ptr[3]);
+                    reso->maxx = bb_native4(ptr[4]);
+                    reso->maxy = bb_native4(ptr[5]);
                     
                     map->resolution = reso;
                 }
@@ -361,18 +367,18 @@ static bb_err_t bb_initialize_map(bb_map_t *map)
                         bb_result_t res;
                         
                         err = bb_load_resource(map, bb_method_DontLoad, &res, 
-                            bb_ID_Pict, ptr[0]);
+                            bb_ID_Pict, bb_native4(ptr[0]));
                         if (!err) {
                             bb_chunkdesc_t *chu = &(map->chunks[res.chunknum]);
                             if (chu->auxdatnum != -1)
                                 return bb_err_Format; /* two image entries for this resource */
                             chu->auxdatnum = jx;
-                            aux[jx].ratnum = ptr[1];
-                            aux[jx].ratden = ptr[2];
-                            aux[jx].minnum = ptr[3];
-                            aux[jx].minden = ptr[4];
-                            aux[jx].maxnum = ptr[5];
-                            aux[jx].maxden = ptr[6];
+                            aux[jx].ratnum = bb_native4(ptr[1]);
+                            aux[jx].ratden = bb_native4(ptr[2]);
+                            aux[jx].minnum = bb_native4(ptr[3]);
+                            aux[jx].minden = bb_native4(ptr[4]);
+                            aux[jx].maxnum = bb_native4(ptr[5]);
+                            aux[jx].maxden = bb_native4(ptr[6]);
                         }
                     }
                     
@@ -402,13 +408,13 @@ static bb_err_t bb_initialize_map(bb_map_t *map)
                         bb_result_t res;
                         
                         err = bb_load_resource(map, bb_method_DontLoad, &res, 
-                            bb_ID_Snd, ptr[0]);
+                            bb_ID_Snd, bb_native4(ptr[0]));
                         if (!err) {
                             bb_chunkdesc_t *chu = &(map->chunks[res.chunknum]);
                             if (chu->auxdatnum != -1)
                                 return bb_err_Format; /* two looping entries for this resource */
                             chu->auxdatnum = jx;
-                            aux[jx].repeats = ptr[1];
+                            aux[jx].repeats = bb_native4(ptr[1]);
                         }
                     }
                     

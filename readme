@@ -1,4 +1,4 @@
-Blorblib version 1.0
+Blorblib version 1.0.1
 Designed by Andrew Plotkin <erkyrath@netcom.com>
 http://www.edoc.com/zarf/blorb/index.html
 
@@ -19,3 +19,9 @@ or the equivalent. Run the program with no arguments to see a list of
 options, or give it the name of a Blorb file.
 
 To add blorblib to a Z-machine interpreter, see blorblib.txt.
+
+The source code in this package is copyright 1997-8 by Andrew Plotkin.
+You have permission to copy and use it freely. You have permission to
+modify it and incorporate it into your own programs, as long as you
+retain a notice in your program or documentation which mentions my
+name and the URL shown above.

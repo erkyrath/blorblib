@@ -1,7 +1,7 @@
 blorblib.c: A more or less portable C library for Z-machine interpreters
 which want to use Blorb files.
 
-Version 1.0
+Version 1.0.1
 Andrew Plotkin <erkyrath@netcom.com>
 
 I'll try to keep this simple. See blorb.h for detailed type definitions.

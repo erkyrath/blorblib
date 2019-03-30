@@ -1,7 +1,7 @@
 #ifndef BLORB_H
 #define BLORB_H
 
-/* blorb.h: Header file for Blorb library, version 1.0.
+/* blorb.h: Header file for Blorb library, version 1.0.1.
     Designed by Andrew Plotkin <erkyrath@netcom.com>
     http://www.edoc.com/zarf/blorb/index.html
     
