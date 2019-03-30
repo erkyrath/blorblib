@@ -1,9 +1,9 @@
 #ifndef BLORBLOW_H
 #define BLORBLOW_H
 
-/* blorblow.h: Low-level header file for Blorb library, version 1.0.1.
-    Designed by Andrew Plotkin <erkyrath@netcom.com>
-    http://www.edoc.com/zarf/blorb/index.html
+/* blorblow.h: Low-level header file for Blorb library, version 1.0.2.
+    Designed by Andrew Plotkin <erkyrath@eblong.com>
+    http://www.eblong.com/zarf/blorb/index.html
     
     This header is generally of interest only to the Blorb library code
     itself (blorblib.c); it defines things internal to the library. 

@@ -1,6 +1,6 @@
-/* blorblib.c: Blorb file reader library, version 1.0.1.
-    Designed by Andrew Plotkin <erkyrath@netcom.com>
-    http://www.edoc.com/zarf/blorb/index.html
+/* blorblib.c: Blorb file reader library, version 1.0.2.
+    Designed by Andrew Plotkin <erkyrath@eblong.com>
+    http://www.eblong.com/zarf/blorb/index.html
     
     This is portable code to read a Blorb file. Add it to your
     interpreter, #include "blorb.h", and you're ready to go.
@@ -758,9 +758,9 @@ bb_err_t bb_get_palette(bb_map_t *map, bb_palette_t **res)
             if (size < 1 || size > 256)
                 return bb_err_Format;
             for (ix=0; ix<size; ix++) {
-                colors[ix].red   = ptr[ix*3];
+                colors[ix].red   = ptr[ix*3+0];
                 colors[ix].green = ptr[ix*3+1];
-                colors[ix].blue  = ptr[ix*3+1];
+                colors[ix].blue  = ptr[ix*3+2];
             }
             pal->isdirect = FALSE;
             pal->data.table.numcolors = size;

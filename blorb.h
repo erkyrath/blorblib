@@ -1,9 +1,9 @@
 #ifndef BLORB_H
 #define BLORB_H
 
-/* blorb.h: Header file for Blorb library, version 1.0.1.
-    Designed by Andrew Plotkin <erkyrath@netcom.com>
-    http://www.edoc.com/zarf/blorb/index.html
+/* blorb.h: Header file for Blorb library, version 1.0.2.
+    Designed by Andrew Plotkin <erkyrath@eblong.com>
+    http://www.eblong.com/zarf/blorb/index.html
     
     This is the header that a Z-machine interpreter should include.
     It defines everything that the interpreter has to know.

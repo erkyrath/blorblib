@@ -1,6 +1,6 @@
-/* blorbscan.c: Blorb file analysis tool, version 1.0.1.
-    Designed by Andrew Plotkin <erkyrath@netcom.com>
-    http://www.edoc.com/zarf/blorb/index.html
+/* blorbscan.c: Blorb file analysis tool, version 1.0.2.
+    Designed by Andrew Plotkin <erkyrath@eblong.com>
+    http://www.eblong.com/zarf/blorb/index.html
     
     This is a nifty little tool which sucks any and all information out of
     a Blorb file. It doesn't do it in a particularly elegant way; it pulls
