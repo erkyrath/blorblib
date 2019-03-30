@@ -1,0 +1,21 @@
+Blorblib version 1.0
+Designed by Andrew Plotkin <erkyrath@netcom.com>
+http://www.edoc.com/zarf/blorb/index.html
+
+This package contains:
+
+readme: This file.
+blorblib.txt: Documentation for blorblib.
+blorb.h: The header for blorblib, suitable for including in an interpreter.
+blorblib.c: The source code for blorblib.
+blorblow.h: Low-level definitions for blorblib.
+blorbscan.c: A program to read and analyze Blorb files.
+
+To compile blorbscan, do
+
+    gcc -o blorbscan blorbscan.c blorblib.c
+
+or the equivalent. Run the program with no arguments to see a list of
+options, or give it the name of a Blorb file.
+
+To add blorblib to a Z-machine interpreter, see blorblib.txt.
