@@ -9,6 +9,16 @@ Blorblib is a C library for manipulating [Blorb][] files.
 1.1). It is obsolete and not maintained. I've posted it only for the benefit
 of legacy projects.
 
+You will probably want to change the lines
+
+    typedef unsigned long uint32;
+    typedef unsigned short uint16;
+
+...in blorb.h to
+
+    typedef uint32_t uint32;
+    typedef uint16_t uint16;
+
 A more current C implementation is included with [CheapGlk][].
 For a current Blorb manipulation tool, see [blorbtool.py][].
 
